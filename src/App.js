@@ -141,8 +141,11 @@ function App() {
         <Search setMusic={setMusic} music={setMusic} />
         <NumResult music={music} />
       </NavigationBar>
-      <Title />
-      <Sorting handleSortChange={handleSortChange} />
+      <Title />?
+      <div className="above">
+        <Sorting handleSortChange={handleSortChange} />
+        <PlaylistTotal playlist={playlist} />
+      </div>
       <Main>
         <Box
           title="MUSIC LIST"
@@ -363,6 +366,16 @@ function Music({ music, playlist, addToPlaylist, removeFromPlaylist }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+function PlaylistTotal({ playlist }) {
+  return (
+    <div className="playlist-total">
+      <h3 className="playlist-total-title">
+        Total Tracks in Playlist: {playlist.length}
+      </h3>
+    </div>
   );
 }
 
